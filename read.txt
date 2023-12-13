@@ -1,0 +1,51 @@
+        자바 학생 점수 프로그램
+        boolean r = true;
+        int sn = 0;
+        int[] s = null;
+        Scanner scan = new Scanner(System.in);
+
+        while(r) {
+            System.out.println("------------------------------------------------");
+            System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+            System.out.println("------------------------------------------------");
+            System.out.println("선택> ");
+
+            int sno = Integer.parseInt(scan.nextLine());
+
+            if(sno==1) {
+                System.out.println("학생수> ");
+                sn = Integer.parseInt(scan.nextLine());
+                s = new int[sn];
+                continue;
+            } else if(sno==2) {
+                for(int i=0; i<sn; i++) {
+                    System.out.println("scores[" + i + "]> ");
+                    s[i] = Integer.parseInt(scan.nextLine());
+                }
+                continue;
+            } else if(sno==3) {
+                for(int i=0; i<sn; i++) {
+                    System.out.println("scores[" + i + "]> " + s[i]);
+                }
+                continue;
+            } else if(sno==4) {
+                int m = 0;
+                int sum = 0;
+                for(int i=0; i<sn; i++) {
+                    if(m < s[i]) {
+                        m = s[i];
+                    }
+                }
+                System.out.println("최고 점수: " + m);
+
+                for(int i=0; i<sn; i++) {
+                    sum += s[i];
+                }
+                double a = (double) sum / sn;
+                System.out.println("평균 점수: " + a);
+                continue;
+            } else if(sno==5) {
+                r = false;
+            }
+        }
+        System.out.println("finish");
